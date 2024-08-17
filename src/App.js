@@ -16,7 +16,8 @@ function App() {
       al: {
         skibidi: 'good',
         ohio: 'bad',
-        sigma: 'cool',bussin: 'very good, often food',
+        sigma: 'cool',
+        bussin: 'very good',
         cap: 'a lie',
         no_cap: 'truth',
         drip: 'impressive style',
