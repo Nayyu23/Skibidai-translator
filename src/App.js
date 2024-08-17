@@ -6,7 +6,6 @@ function App() {
   const [outputText, setOutputText] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('en');
   const [targetLanguage, setTargetLanguage] = useState('al');
-
   // Example dictionary
   const dictionary = {  
     en: {
@@ -14,114 +13,114 @@ function App() {
         skibidi: 'good',
         ohio: 'bad',
         sigma: 'cool',
-        bussin: 'very good, often food',
-        cap: 'a lie',
-        no_cap: 'truth',
+        bussin: 'very good',
+        cap: 'lie',
         drip: 'impressive style',
         slay: 'perform exceptionally well',
-        bet: 'agreement or sure',
-        mood: 'relatable feeling',
-        simp: 'overly attentive to someone',
-        vibe_check: 'assess vibe or energy',
-        cheugy: 'outdated or trying too hard',
+        bet: 'okay!',
+        mood: 'relatable',
+        simp: 'person who is overly attentive to someone',
+        cheugy: 'outdated',
         stan: 'obsessed fan',
-        sus: 'suspicious or shady',
-        fire: 'very cool or amazing',
+        sus: 'suspicious',
+        fire: 'amazing',
         flex: 'show off',
         ghosting: 'cutting off communication',
-        lit: 'exciting or cool',
-        w: 'win or success',
-        l: 'loss or failure',
+        lit: 'exciting',
+        w: 'win',
+        l: 'loss',
         ratio: 'negative response outshines',
-        yeet: 'throw or express excitement',
-        fam: 'family or close friends',
+        yeet: 'throw',
+        fam: 'close friends',
         goat: 'greatest of all time',
         bruh: 'expression of disbelief',
-        salty: 'bitter or upset',
-        low_key: 'done quietly or subtly',
-        high_key: 'obviously or notably',
-        big_yikes: 'strong discomfort',
+        salty: 'bitter',
+        lowkey: 'done subtly',
+        highkey: 'obviously',
         snack: 'attractive person',
-        hits_different: 'emotionally impactful',
-        glow_up: 'improve appearance or situation',
-        main_character_energy: 'confident and stands out',
-        cancel: 'stop supporting someone',
-        clout: 'influence, especially online',
+        cancel: 'stop supporting',
+        clout: 'online influence',
         drag: 'harsh criticism',
-        go_off: 'express freely',
-        on_god: 'emphasize truth',
         noob: 'inexperienced person',
-        troll: 'provokes online for fun',
-        shook: 'shocked or surprised',
-        catch_these_hands: 'ready to fight',
+        troll: 'provocateur',
+        shook: 'shocked',
         thirsty: 'desperate for attention',
-        receipts: 'proof or evidence',
-        stan_culture: 'extreme fandom behavior',
-        spill_the_tea: 'share gossip',
-        karen: 'entitled or demanding person',
-        cursed_image: 'unsettling photo',
-        vsco_girl: 'specific trendy aesthetic',
-        savage: 'bold or ruthless',
-        living_rent_free: 'constantly on your mind',
+        receipts: 'proof',
+        karen: 'entitled person',
+        savage: 'ruthless',
         afk: 'away from keyboard',
         irl: 'in real life',
         finsta: 'private Instagram account',
         sksksk: 'express excitement or nervousness',
-        ok_boomer: 'dismiss older generation',
-        bop: 'catchy song',
-        rent_free: 'occupies mind constantly',
-        clout_chaser: 'seeks online attention',
+        bop: 'person who has \"been around\"',
         dms: 'direct messages',
         tea: 'gossip',
         boomer: 'out-of-touch older person',
         finesse: 'get what you want skillfully',
-        thirst_trap: 'provocative photo',
         basic: 'follows mainstream trends',
         hyped: 'very excited',
         woke: 'socially aware',
         snatched: 'looking good',
-        twinning: 'dressed alike',
-        vibing: 'relaxing or enjoying',
-        boujee: 'luxurious or pretentious',
+        twinning: 'alike',
+        vibing: 'relaxing',
+        boujee: 'luxurious',
         adulting: 'taking on responsibilities',
-        clap_back: 'witty retort',
-        gucci: 'good or cool',
-        throwing_shade: 'subtly disrespect',
+        gucci: 'good',
         wig: 'amazed',
-        no_chill: 'overreacts or not calm',
         squad: 'close friends',
         clapped: 'ugly',
         rizz: 'charisma',
       }
     }
   };
-
   useEffect(() => {
     translateText();
   }, [inputText, sourceLanguage, targetLanguage]);
 
   const translateText = () => {
-    const words = inputText.trim().toLowerCase().split(' ');
-    let translatedText = '';
+    let translatedText = inputText.trim().toLowerCase();
 
-    words.forEach((word) => {
-      if (
-        dictionary[sourceLanguage] &&
-        dictionary[sourceLanguage][targetLanguage] &&
-        dictionary[sourceLanguage][targetLanguage][word]
-      ) {
-        translatedText += dictionary[sourceLanguage][targetLanguage][word] + ' ';
-      } else {
-        translatedText += word + ' ';
-      }
+    // Phrase dictionary for multi-word translations
+    const phraseDictionary = {
+      "no chill": "no emtional control",
+      "main character energy": "confidence and stands out",
+      "throwing shade": "subtly disrespecting",
+      "vibe check": 'assess vibe or energy',
+      "big yikes": 'strong discomfort',
+      "hits different": 'emotionally impactful',
+      "glow up": 'improve appearance',
+      "go off:": 'express freely',
+      "on god": 'emphasize truth',
+      "catch these hands": 'ready to fight',
+      "throw hands": 'fight',
+      "stan culture": 'extreme fandom behavior',
+      "spill the tea": 'share the gossip',
+      "cursed image": 'unsettling photo',
+      "vsco girl": 'specific trendy aesthetic',
+      "living rent free": 'constantly on your mind',
+      "rent free": 'occupies mind constantly',
+      "thirst trap": 'provocative photo',
+      "clap back": 'witty retort',
+
+    };
+
+    // Check and replace phrases within the sentence
+    Object.keys(phraseDictionary).forEach((phrase) => {
+      const regex = new RegExp(`\\b${phrase}\\b`, 'gi');
+      translatedText = translatedText.replace(regex, phraseDictionary[phrase]);
     });
 
-    setOutputText(translatedText.trim());
-  };
+    // Split the text into words after phrase replacement
+    const words = translatedText.split(' ');
 
-  const swapLanguages = () => {
-    setSourceLanguage(targetLanguage);
-    setTargetLanguage(sourceLanguage);
+    // Word dictionary for single-word translations
+    const wordDictionary = dictionary[sourceLanguage][targetLanguage];
+
+    translatedText = words.map((word) => {
+      return wordDictionary[word] || word; // Translate each word or leave it unchanged
+    }).join(' ');
+
+    setOutputText(translatedText.trim());
   };
 
   return (
@@ -146,7 +145,7 @@ function App() {
           >
             <option value="en">English</option>
           </select>
-          <button id="swapLanguages" onClick={swapLanguages}>
+          <button id="swapLanguages">
             ⇄
           </button>
           <select
