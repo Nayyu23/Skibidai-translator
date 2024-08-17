@@ -12,7 +12,7 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -33,10 +33,57 @@
 .navbar a:hover {
   color: #464646;
 }
-.content {
-  max-width: 600px;
-  margin: 40px auto;
+
+
+body {
+  font-family: "Quicksand";
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.translator-container {
+  width: 80%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0.1, 0.1, 0.1, 0.1);
   padding: 20px;
 }
+
+textarea {
+  width: 92%;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 32px;
+  resize: none;
+}
+
+.language-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+select,
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button#swapLanguages {
+  background-color: #ddd;
+  margin: 0 10px;
+}
+
 
 
