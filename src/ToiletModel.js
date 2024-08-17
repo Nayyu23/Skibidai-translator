@@ -11,7 +11,7 @@ function ToiletModel({ modelPath }) {
   // Center the model's geometry to ensure it rotates around its own axis
   scene.traverse((child) => {
     if (child.isMesh) {
-      child.geometry.center(); // Centers the geometry to ensure correct rotation
+      //child.geometry.center(); // Centers the geometry to ensure correct rotation
       child.castShadow = true; // Enable shadow casting
       child.receiveShadow = true; // Enable shadow receiving
     }
@@ -20,7 +20,7 @@ function ToiletModel({ modelPath }) {
   // Use the useFrame hook to rotate the model around its own axis
   useFrame(() => {
     if (ref.current) {
-      ref.current.rotation.y += 0.05; // Increase this value to rotate faster
+      ref.current.rotation.y += 0.01; // Increase this value to rotate faster
     }
   });
 
@@ -28,7 +28,7 @@ function ToiletModel({ modelPath }) {
     <primitive
       ref={ref}
       object={scene}
-      scale={[0.03, 0.03, 0.03]} // Adjust scale as needed
+      scale={[1, 1, 1]} // Adjust scale as needed
       position={[0, 0, 0]} // Center the model at the origin
     />
   );

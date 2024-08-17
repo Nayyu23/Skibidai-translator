@@ -11,11 +11,11 @@ const LandingPage = () => {
       </div>
 
       <div className="model-container">
-        <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
-          <ambientLight intensity={0.3} />
+        <Canvas shadows camera={{ position: [0, 3, 5], fov: 80 }}>
+          <ambientLight intensity={0.5} />
           <directionalLight
-            position={[2, 5, 2]}
-            intensity={1}
+            position={[-5, 5, 5]}
+            intensity={4}
             castShadow
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
