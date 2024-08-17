@@ -55,6 +55,7 @@ function App() {
         irl: 'in real life',
         finsta: 'private Instagram account',
         sksksk: 'express excitement or nervousness',
+        bop: 'person who has \"been around\"',
         dms: 'direct messages',
         tea: 'gossip',
         boomer: 'out-of-touch older person',
@@ -82,35 +83,17 @@ function App() {
   const translateText = () => {
     let translatedText = inputText.trim().toLowerCase();
 
-
     // Phrase dictionary for multi-word translations
     const phraseDictionary = {
       "no chill": "no emtional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
       "throw shade": 'subtly disrespect',
-    words.forEach((word) => {
-      if (
-        dictionary[sourceLanguage] &&
-        dictionary[sourceLanguage][targetLanguage] &&
-        dictionary[sourceLanguage][targetLanguage][word]
-      ) {
-        translatedText += dictionary[sourceLanguage][targetLanguage][word] + ' ';
-      } else {
-        translatedText += word + ' ';
-      }
-
-    // Phrase dictionary for multi-word translations
-    const phraseDictionary = {
-      "no chill": "no emotional control",
-      "main character energy": "confidence and stands out",
-      "throwing shade": "subtly disrespecting",
       "vibe check": 'assess vibe or energy',
       "big yikes": 'strong discomfort',
       "hits different": 'emotionally impactful',
       "glow up": 'improve appearance',
       "go off:": 'express freely',
-      "go off": 'express freely',
       "on god": 'emphasize truth',
       "catch these hands": 'ready to fight',
       "throw hands": 'fight',
@@ -124,6 +107,7 @@ function App() {
       "clap back": 'witty retort',
       "on skibidi": "truthfully",
       "on skib": "truthfully",
+
     };
 
     // Check and replace phrases within the sentence
@@ -143,10 +127,8 @@ function App() {
     }).join(' ');
 
     setOutputText(translatedText.trim());
-  const swapLanguages = () => {
-    setSourceLanguage(targetLanguage);
-    setTargetLanguage(sourceLanguage);
   };
+
   // Scroll-based visibility for About Me
   useEffect(() => {
     const handleScroll = () => {
@@ -192,12 +174,6 @@ function App() {
           </select>
           <button id="swapLanguages">
             →
-          <button id="swapLanguages" onClick={swapLanguages}>
-          <button id="swapLanguages" onClick={() => {
-            const temp = sourceLanguage;
-            setSourceLanguage(targetLanguage);
-            setTargetLanguage(temp);
-          }}>
           </button>
           <select
             id="targetLanguage"
@@ -228,5 +204,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
