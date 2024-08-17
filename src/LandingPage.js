@@ -1,7 +1,8 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import ToiletModel from './ToiletModel'; // Import the 3D model component
-import PromptChanger from './PromptChanger'; // Import the PromptChanger component
+import ToiletModel from './ToiletModel';
+import PromptChanger from './PromptChanger';
+import AboutMe from './AboutMe'; // Import the AboutMe component
 
 const LandingPage = () => {
   return (
@@ -23,6 +24,12 @@ const LandingPage = () => {
           <ToiletModel modelPath="/toilet.glb" />
         </Canvas>
       </div>
+
+      <div className="translator-container">
+        {/* Insert your translator component here */}
+      </div>
+
+      
     </div>
   );
 };
