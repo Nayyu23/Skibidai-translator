@@ -21,7 +21,7 @@ function App() {
         slay: 'perform exceptionally well',
         bet: 'okay!',
         mood: 'relatable',
-        simp: 'overly attentive to someone',
+        simp: 'person who is overly attentive to someone',
         cheugy: 'outdated',
         stan: 'obsessed fan',
         sus: 'suspicious',
@@ -54,7 +54,7 @@ function App() {
         irl: 'in real life',
         finsta: 'private Instagram account',
         sksksk: 'express excitement or nervousness',
-        bop: 'a person who hass \"been around\"',
+        bop: 'person who has \"been around\"',
         dms: 'direct messages',
         tea: 'gossip',
         boomer: 'out-of-touch older person',
@@ -85,7 +85,7 @@ function App() {
   
     // Phrase dictionary for multi-word translations
     const phraseDictionary = {
-      "no chill": "overreacts",
+      "no chill": "no emtional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
       "vibe check": 'assess vibe or energy',
@@ -95,6 +95,7 @@ function App() {
       "go off:": 'express freely',
       "on god": 'emphasize truth',
       "catch these hands": 'ready to fight',
+      "throw hands": 'fight',
       "stan culture": 'extreme fandom behavior',
       "spill the tea": 'share the gossip',
       "cursed image": 'unsettling photo',
