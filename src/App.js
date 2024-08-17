@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import LandingPage from './LandingPage'; // Import the LandingPage component
-import AboutMe from './AboutMe'; // Import the AboutMe component
+import LandingPage from './LandingPage';
 
 function App() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
-  const [sourceLanguage, setSourceLanguage] = useState('en');
-  const [targetLanguage, setTargetLanguage] = useState('al');
+  const [sourceLanguage] = useState('en');
+  const [targetLanguage] = useState('al');
   const [aboutMeVisible, setAboutMeVisible] = useState(false); // State for About Me visibility
   const [lastScrollTop, setLastScrollTop] = useState(0); // State to track the last scroll position
   // Example dictionary
@@ -55,7 +54,7 @@ function App() {
         irl: 'in real life',
         finsta: 'private Instagram account',
         sksksk: 'express excitement or nervousness',
-        bop: 'person who has \"been around\"',
+        bop: 'person who has "been around"',
         dms: 'direct messages',
         tea: 'gossip',
         boomer: 'out-of-touch older person',
@@ -78,7 +77,7 @@ function App() {
   };
   useEffect(() => {
     translateText();
-  }, [inputText, sourceLanguage, targetLanguage]);
+  }, [inputText]);
 
   const translateText = () => {
     let translatedText = inputText.trim().toLowerCase();
