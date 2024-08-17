@@ -85,6 +85,7 @@ function App() {
       "no chill": "no emtional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
+      "throw shade": 'subtly disrespect',
       "vibe check": 'assess vibe or energy',
       "big yikes": 'strong discomfort',
       "hits different": 'emotionally impactful',
@@ -101,6 +102,8 @@ function App() {
       "rent free": 'occupies mind constantly',
       "thirst trap": 'provocative photo',
       "clap back": 'witty retort',
+      "on skibidi": "truthfully",
+      "on skib": "truthfully",
 
     };
 
@@ -143,17 +146,17 @@ function App() {
             value={sourceLanguage}
             onChange={(e) => setSourceLanguage(e.target.value)}
           >
-            <option value="en">English</option>
+            <option value="al">Gen Alpha</option>
           </select>
           <button id="swapLanguages">
-            ⇄
+            →
           </button>
           <select
             id="targetLanguage"
             value={targetLanguage}
             onChange={(e) => setTargetLanguage(e.target.value)}
           >
-            <option value="al">Gen Alpha</option>
+            <option value="en">English</option>
           </select>
         </div>
         <textarea
