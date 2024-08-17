@@ -1,3 +1,3 @@
 coming soon
 
-npm install @react-three/fiber @react-three/drei
+npm install @react-three/fiber
