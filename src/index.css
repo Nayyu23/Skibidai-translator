@@ -48,3 +48,45 @@ button#swapLanguages {
   margin: 0 10px;
   font-size: 20px;
 }
+<<<<<<< Updated upstream
+=======
+
+.prompt-container {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px; /* Larger font size for better readability */
+  color: #333;
+  height: 60px; /* Fixed height to maintain consistent space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.static-text {
+  color: #333; /* Color of the static text */
+}
+
+.prompt-wrapper {
+  display: inline-block;
+  width: 90px; /* Fixed width that is wide enough to hold the longest prompt */
+  text-align: left; /* Ensure the prompt text aligns correctly */
+}
+
+.prompt-text {
+  transition: opacity 0.7s ease, transform 0.7s ease, color 0.7s ease;
+  display: inline-block; /* Ensure the text animates smoothly */
+  opacity: 1;
+  transform: translateY(0);
+  vertical-align: baseline; /* Ensures alignment with surrounding text */
+}
+
+.fade-slide-out {
+  opacity: 0;
+  transform: translateY(20px); /* Slide down during fade-out */
+}
+
+.fade-slide-in {
+  opacity: 1;
+  transform: translateY(0); /* Ensure that the text slides up to the baseline */
+}
+>>>>>>> Stashed changes
