@@ -216,11 +216,6 @@ button:focus {
   }
 }
 
-<<<<<<< Updated upstream
-.conveyor.paused {
-  animation-play-state: paused;
-}
-=======
 .about-me-text {
   font-size: 1.1em;
   color: #0000005b;
@@ -275,4 +270,3 @@ button:focus {
   transform: scale(1.2);
   color: #FFFFFF;
 }
->>>>>>> Stashed changes
