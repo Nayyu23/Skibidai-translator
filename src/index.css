@@ -158,6 +158,7 @@ button:focus {
 }
 
 .about-me-text {
+  text-align: center;
   font-size: 1.1em;
   color: #0000005b;
   opacity: 0;
