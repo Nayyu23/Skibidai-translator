@@ -1,31 +1,13 @@
-<<<<<<< Updated upstream
-import React, { useState, useEffect, useRef } from 'react';
-import { Canvas } from '@react-three/fiber';
-import ToiletModel from './ToiletModel';
-import PromptChanger from './PromptChanger';
-=======
 import React, { useState, useEffect } from 'react';
 import LandingPage from './LandingPage';
 import AboutMe from './AboutMe';
 import ConveyorBelt from './ConveyorBelt';
->>>>>>> Stashed changes
 
 function App() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('en');
   const [targetLanguage, setTargetLanguage] = useState('al');
-<<<<<<< Updated upstream
-  const [isPaused, setIsPaused] = useState(false);
-  const [translation, setTranslation] = useState('Hover over a word to translate');
-  const conveyorRef = useRef(null);
-
-  // Hardcoded translations for conveyor words
-  const translations = {
-    'skibidi': 'good',
-    'rizz': 'charisma',
-    'sigma': 'cool'
-=======
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   
@@ -95,7 +77,6 @@ function App() {
         rizz: 'charisma',
       }
     }
->>>>>>> Stashed changes
   };
 
   useEffect(() => {
@@ -126,11 +107,8 @@ function App() {
       "rent free": 'occupies mind constantly',
       "thirst trap": 'provocative photo',
       "clap back": 'witty retort',
-<<<<<<< Updated upstream
-=======
       "on skibidi": "truthfully",
       "on skib": "truthfully",
->>>>>>> Stashed changes
     };
 
     // Check and replace phrases within the sentence
@@ -184,7 +162,6 @@ function App() {
   };
 
   return (
-    <>
       <div className="app-container">
         {/* Skibidi Changer above the toilet */}
         <PromptChanger />
@@ -203,40 +180,6 @@ function App() {
           </Canvas>
         </div>
 
-<<<<<<< Updated upstream
-        <div className="translator-container">
-          <textarea
-            id="inputText"
-            placeholder="Enter text"
-            rows="4"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)} />
-          <div className="language-select">
-            <select
-              id="sourceLanguage"
-              value={sourceLanguage}
-              onChange={(e) => setSourceLanguage(e.target.value)}
-            >
-              <option value="al">Gen Alpha</option>
-            </select>
-            <button id="swapLanguages" onClick={swapLanguages}>
-              ⇄
-            </button>
-            <select
-              id="targetLanguage"
-              value={targetLanguage}
-              onChange={(e) => setTargetLanguage(e.target.value)}
-            >
-              <option value="en">English</option>
-            </select>
-          </div>
-          <textarea
-            id="outputText"
-            placeholder="Translation"
-            rows="4"
-            value={outputText}
-            readOnly />
-=======
       {/* Conveyor Belt */}
       <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
 
@@ -247,7 +190,6 @@ function App() {
           <p>
           This application is designed as a comprehensive tool designed to bridge the gap in understanding modern slang, also known as “Gen Alpha” slang. It serves to empower individuals to learn contemporary language trends without the fear of miscommunication or embarrassment. Whether you're trying to stay current or simply decode unfamiliar terminology, this application provides a user-friendly solution that fosters learning and inclusivity in an ever-evolving linguistic landscape.
           </p>
->>>>>>> Stashed changes
         </div>
       </div>
 
@@ -282,12 +224,9 @@ function App() {
           {translation}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-<<<<<<< Updated upstream
+
 export default App;
-=======
-export default App;
->>>>>>> Stashed changes
