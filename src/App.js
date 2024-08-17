@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
+<<<<<<< Updated upstream
 import ToiletModel from './ToiletModel'; // Import the 3D model component
+=======
+import ToiletModel from './ToiletModel';
+import SkibidiChanger from './PromptChanger';
+import PromptChanger from './PromptChanger';
+>>>>>>> Stashed changes
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -133,7 +139,14 @@ function App() {
 
   return (
     <div className="app-container">
+<<<<<<< Updated upstream
       {/* 3D Model with Lighting above the Translator UI */}
+=======
+      {/* Skibidi Changer above the toilet */}
+      <PromptChanger />
+
+      {/* 3D Model with Lighting */}
+>>>>>>> Stashed changes
       <div className="model-container">
         <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
           <ambientLight intensity={0.3} />
