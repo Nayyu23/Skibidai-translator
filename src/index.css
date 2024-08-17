@@ -38,42 +38,9 @@ body {
 }
 
 .translator-container {
-<<<<<<< Updated upstream
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.model-container {
-  width: 100%;
-  max-width: 600px;
-  height: 400px; /* Adjust height as necessary */
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.skibidi-container {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 24px;
-  color: #333;
-}
-
-textarea {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  width: 92%;
-  margin-bottom: 25px;
-  padding: 10px;
-=======
   width: 80%;
   max-width: 600px;
   background-color: transparent; /* Make the translator container fully transparent */
->>>>>>> Stashed changes
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -112,13 +79,7 @@ button:focus {
 
 select,
 button {
-<<<<<<< Updated upstream
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  padding: 10px;
-=======
   padding: 8px;
->>>>>>> Stashed changes
   border-radius: 5px;
   border: 2px solid rgba(255, 255, 255, 0.5); /* Add a semi-transparent white border */
   background-color: rgba(255, 255, 255, 0.8); /* Keep the background opaque */
@@ -127,62 +88,8 @@ button {
   transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
-<<<<<<< Updated upstream
-button#swapLanguages {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  background-color: #ddd;
-  margin: 0 10px;
-}
-
-.prompt-container {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 36px; 
-  height: 60px;
-}
-
-.text-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.static-text {
-  color: #333; 
-  margin-right: 5px; 
-}
-
-.prompt-wrapper {
-  display: inline-block;
-  width: 90px;
-  text-align: left;
-} 
-
-.prompt-text {
-  transition: opacity 0.7s ease, transform 0.7s ease, color 0.7s ease;
-  display: inline-block; 
-  opacity: 1;
-  transform: translateY(0);
-  vertical-align: baseline; 
-}
-
-.fade-slide-out {
-  opacity: 0;
-  transform: translateY(20px); 
-}
-
-.fade-slide-in {
-  opacity: 1;
-  transform: translateY(0); 
-=======
 select:focus,
 button:focus {
   border-color: #007BFF; /* Blue border when focused */
   outline: none; /* Remove default outline */
->>>>>>> Stashed changes
 }
