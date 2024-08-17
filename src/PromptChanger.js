@@ -25,14 +25,14 @@ const PromptChanger = () => {
 
   return (
     <div className="prompt-container">
-      <h1>
+      <div className="text-container">
         <span className="static-text">What is </span>
         <span className="prompt-wrapper">
           <span className={`prompt-text ${animationClass}`} style={{ color: colors[index] }}>
             {prompts[index]}
           </span>
         </span>
-      </h1>
+      </div>
     </div>
   );
 };

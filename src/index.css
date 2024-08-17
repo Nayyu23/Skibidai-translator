@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -6,57 +14,70 @@
   padding: 20px;
 }
 
+.translator-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .model-container {
   width: 100%;
   max-width: 600px;
-  height: 400px;
+  height: 400px; /* Adjust height as necessary */
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.translator-container {
-  width: 90%;
-  max-width: 600px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.skibidi-container {
   text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
 }
 
 textarea {
-  width: 80%;
-  margin-bottom: 15px;
+  width: 92%;
+  margin-bottom: 25px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  font-size: 18px;
+  font-size: 16px;
   resize: none;
 }
 
 .language-select {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
   margin-bottom: 15px;
+}
+
+select,
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 button#swapLanguages {
   background-color: #ddd;
   margin: 0 10px;
-  font-size: 20px;
 }
-<<<<<<< Updated upstream
-=======
 
 .prompt-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
   font-size: 36px; /* Larger font size for better readability */
-  color: #333;
   height: 60px; /* Fixed height to maintain consistent space */
+}
+
+.text-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +85,7 @@ button#swapLanguages {
 
 .static-text {
   color: #333; /* Color of the static text */
+  margin-right: 5px; /* Slight spacing between "What is" and the prompt */
 }
 
 .prompt-wrapper {
@@ -89,4 +111,3 @@ button#swapLanguages {
   opacity: 1;
   transform: translateY(0); /* Ensure that the text slides up to the baseline */
 }
->>>>>>> Stashed changes
