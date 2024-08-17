@@ -1,89 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-/* base styles */
-* {
-  margin: 0;
-  font-family: "Quicksand";
-  color: #61DBFB;
-}
-
-/* navbar styles */
-.navbar {
-  padding: 20px;
+.app-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
-}
-.navbar h1 {
-  color: #f1356d;
-}
-.navbar .links {
-  margin-left: auto;
-}
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-  color: white;
-  background-color: #61DBFB;
-  border-radius: 8px;
-}
-.navbar a:hover {
-  color: #464646;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
-
-body {
-  font-family: "Quicksand";
-  background-color: #f1f1f1;
+.model-container {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 .translator-container {
-  width: 80%;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 600px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px rgba(0.1, 0.1, 0.1, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  text-align: center;
 }
 
 textarea {
-  width: 92%;
-  margin-bottom: 25px;
+  width: 100%;
+  margin-bottom: 15px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  font-size: 32px;
+  font-size: 18px;
   resize: none;
 }
 
 .language-select {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 15px;
-}
-
-select,
-button {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 button#swapLanguages {
   background-color: #ddd;
   margin: 0 10px;
+  font-size: 20px;
 }
-
-
-

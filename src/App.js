@@ -1,8 +1,6 @@
-import Navbar from './Navbar';
-import Home from './Home';
 import React, { useState, useEffect } from 'react';
-
-
+import { Canvas } from '@react-three/fiber';
+import ToiletModel from './ToiletModel'; // Import the 3D model component
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -17,7 +15,7 @@ function App() {
         skibidi: 'good',
         ohio: 'bad',
         sigma: 'cool',
-        bussin: 'very good',
+        bussin: 'very good, often food',
         cap: 'a lie',
         no_cap: 'truth',
         drip: 'impressive style',
@@ -95,7 +93,6 @@ function App() {
         squad: 'close friends',
         clapped: 'ugly',
         rizz: 'charisma',
-        
       }
     }
   };
@@ -129,40 +126,57 @@ function App() {
   };
 
   return (
-    <div className="translator-container">
-      <textarea
-        id="inputText"
-        placeholder="Enter text"
-        rows="4"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-      />
-      <div className="language-select">
-        <select
-          id="sourceLanguage"
-          value={sourceLanguage}
-          onChange={(e) => setSourceLanguage(e.target.value)}
-        >
-          <option value="en">English</option>
-        </select>
-        <button id="swapLanguages" onClick={swapLanguages}>
-          ⇄
-        </button>
-        <select
-          id="targetLanguage"
-          value={targetLanguage}
-          onChange={(e) => setTargetLanguage(e.target.value)}
-        >
-          <option value="al">Gen Alpha</option>
-        </select>
+    <div className="app-container">
+      {/* 3D Model with Lighting above the Translator UI */}
+      <div className="model-container">
+        <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
+          <ambientLight intensity={0.3} />
+          <directionalLight
+            position={[2, 5, 2]}
+            intensity={1}
+            castShadow
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+          />
+          <ToiletModel modelPath="/toilet.glb" />
+        </Canvas>
       </div>
-      <textarea
-        id="outputText"
-        placeholder="Translation"
-        rows="4"
-        value={outputText}
-        readOnly
-      />
+
+      <div className="translator-container">
+        <textarea
+          id="inputText"
+          placeholder="Enter text"
+          rows="4"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        <div className="language-select">
+          <select
+            id="sourceLanguage"
+            value={sourceLanguage}
+            onChange={(e) => setSourceLanguage(e.target.value)}
+          >
+            <option value="en">English</option>
+          </select>
+          <button id="swapLanguages" onClick={swapLanguages}>
+            ⇄
+          </button>
+          <select
+            id="targetLanguage"
+            value={targetLanguage}
+            onChange={(e) => setTargetLanguage(e.target.value)}
+          >
+            <option value="al">Gen Alpha</option>
+          </select>
+        </div>
+        <textarea
+          id="outputText"
+          placeholder="Translation"
+          rows="4"
+          value={outputText}
+          readOnly
+        />
+      </div>
     </div>
   );
 }
