@@ -14,11 +14,11 @@ const LandingPage = () => {
         <Canvas shadows camera={{ position: [0, 3, 5], fov: 80 }}>
           <ambientLight intensity={0.5} />
           <directionalLight
-            position={[-5, 5, 5]}
+            position={[10, 10, 10]}
             intensity={4}
             castShadow
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
           />
           <ToiletModel modelPath="/toilet.glb" />
         </Canvas>

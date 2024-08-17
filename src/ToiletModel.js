@@ -35,16 +35,12 @@ function ToiletModel({ modelPath }) {
     };
   }, []);
 
-  // Use the useFrame hook to rotate and scale the model based on scroll position
   useFrame(() => {
     if (ref.current) {
       const scrollY = scrollRef.current;
-      // Adjust the rotation speed by scaling the scroll position
       ref.current.rotation.y = scrollY * 0.01 + Math.PI; // Adding initial rotation
 
-      // Calculate the scale based on scroll position
-      // Assuming you want the model to shrink as the user scrolls down
-      const scale = Math.max(0.5, 2 - scrollY * 0.002); // Prevent the scale from going below 0.5
+      const scale = Math.max(0.5, 2.5 - scrollY * 0.002); // Prevent the scale from going below 0.5
       ref.current.scale.set(scale, scale, scale);
     }
   });
@@ -54,7 +50,7 @@ function ToiletModel({ modelPath }) {
       ref={ref}
       object={scene}
       scale={[1, 1, 1]} // Initial scale, will be adjusted in useFrame
-      position={[0, -2, 0]} // Center the model at the origin
+      position={[0, -3, 0]} // Center the model at the origin
     />
   );
 }
