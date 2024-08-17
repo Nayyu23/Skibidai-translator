@@ -6,11 +6,10 @@ import ConveyorBelt from './ConveyorBelt';
 function App() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
-  const [sourceLanguage, setSourceLanguage] = useState('en');
-  const [targetLanguage, setTargetLanguage] = useState('al');
-  const [aboutMeVisible, setAboutMeVisible] = useState(false);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  
+  const [sourceLanguage] = useState('en');
+  const [targetLanguage] = useState('al');
+  const [aboutMeVisible, setAboutMeVisible] = useState(false); // State for About Me visibility
+  const [lastScrollTop, setLastScrollTop] = useState(0); // State to track the last scroll position
   // Example dictionary
   const dictionary = {  
     en: {
@@ -78,10 +77,9 @@ function App() {
       }
     }
   };
-
   useEffect(() => {
     translateText();
-  }, [inputText, sourceLanguage, targetLanguage]);
+  }, [inputText]);
 
   const translateText = () => {
     let translatedText = inputText.trim().toLowerCase();
@@ -91,6 +89,7 @@ function App() {
       "no chill": "no emotional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
+      "throw shade": 'subtly disrespect',
       "vibe check": 'assess vibe or energy',
       "big yikes": 'strong discomfort',
       "hits different": 'emotionally impactful',
@@ -120,8 +119,12 @@ function App() {
     // Split the text into words after phrase replacement
     const words = translatedText.split(' ');
 
+
     // Hardcoded word translations for single-word translations
     const wordTranslations = translations;
+
+    // Word dictionary for single-word translations
+    const wordDictionary = dictionary[sourceLanguage][targetLanguage];
 
     translatedText = words.map((word) => {
       return wordTranslations[word] || word; // Translate each word or leave it unchanged
@@ -130,10 +133,26 @@ function App() {
     setOutputText(translatedText.trim());
   };
 
-  const swapLanguages = () => {
-    setSourceLanguage(targetLanguage);
-    setTargetLanguage(sourceLanguage);
-  };
+  // Scroll-based visibility for About Me
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutMeSection = document.querySelector('.about-me-container');
+      const rect = aboutMeSection.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Increase sensitivity to scrolling up
+      if (rect.top <= window.innerHeight && rect.bottom >= 0 && scrollTop > lastScrollTop) {
+        setAboutMeVisible(true);
+      } else if (scrollTop < lastScrollTop - 5) {  // Smaller threshold for minimizing
+        setAboutMeVisible(false);
+      }
+
+      setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // For Mobile or negative scrolling
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollTop]);
 
   const handleMouseOver = (e) => {
     setIsPaused(true);
@@ -222,11 +241,37 @@ function App() {
         </div>
         <div className="translation-box" id="translationBox">
           {translation}
+
+    <div className="app-container">
+      {/* Landing Page */}
+      <LandingPage />
+
+      {/* Translator Section */}
+      <div className="translator-container">
+        <textarea
+          id="inputText"
+          placeholder="Enter text"
+          rows="4"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        <div className="language-select">
+          <button id="sourceLanguage">
+            Gen Alpha → English
+          </button>
+        </div>
+      </div>
+
+      {/* About Me Section */}
+      <div className={`about-me-container ${aboutMeVisible ? 'expanded' : ''}`}>
+        <h2 className="about-me-header">About Me</h2>
+        <div className="about-me-text">
+          <p>
+          This application is designed as a comprehensive tool designed to bridge the gap in understanding modern slang, also known as “Gen Alpha” slang. It serves to empower individuals to learn contemporary language trends without the fear of miscommunication or embarrassment. Whether you're trying to stay current or simply decode unfamiliar terminology, this application provides a user-friendly solution that fosters learning and inclusivity in an ever-evolving linguistic landscape.
+          </p>
         </div>
       </div>
     </div>
   );
 }
-
-
 export default App;
