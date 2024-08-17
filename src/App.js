@@ -156,7 +156,7 @@ function App() {
             value={sourceLanguage}
             onChange={(e) => setSourceLanguage(e.target.value)}
           >
-            <option value="en">English</option>
+            <option value="al">Gen Alpha</option>
           </select>
           <button id="swapLanguages" onClick={swapLanguages}>
             ⇄
@@ -166,7 +166,7 @@ function App() {
             value={targetLanguage}
             onChange={(e) => setTargetLanguage(e.target.value)}
           >
-            <option value="al">Gen Alpha</option>
+            <option value="en">English</option>
           </select>
         </div>
         <textarea
