@@ -6,6 +6,7 @@ function App() {
   const [outputText, setOutputText] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('en');
   const [targetLanguage, setTargetLanguage] = useState('al');
+
   // Example dictionary
   const dictionary = {  
     en: {
@@ -52,7 +53,7 @@ function App() {
         irl: 'in real life',
         finsta: 'private Instagram account',
         sksksk: 'express excitement or nervousness',
-        bop: 'person who has \"been around\"',
+        bop: 'person who has "been around"',
         dms: 'direct messages',
         tea: 'gossip',
         boomer: 'out-of-touch older person',
@@ -73,36 +74,36 @@ function App() {
       }
     }
   };
+
+  // Phrase dictionary for multi-word translations
+  const phraseDictionary = {
+    "no chill": "no emotional control",
+    "main character energy": "confidence and stands out",
+    "throwing shade": "subtly disrespecting",
+    "vibe check": 'assess vibe or energy',
+    "big yikes": 'strong discomfort',
+    "hits different": 'emotionally impactful',
+    "glow up": 'improve appearance',
+    "go off:": 'express freely',
+    "on god": 'emphasize truth',
+    "catch these hands": 'ready to fight',
+    "throw hands": 'fight',
+    "stan culture": 'extreme fandom behavior',
+    "spill the tea": 'share the gossip',
+    "cursed image": 'unsettling photo',
+    "vsco girl": 'specific trendy aesthetic',
+    "living rent free": 'constantly on your mind',
+    "rent free": 'occupies mind constantly',
+    "thirst trap": 'provocative photo',
+    "clap back": 'witty retort',
+  };
+
   useEffect(() => {
     translateText();
   }, [inputText, sourceLanguage, targetLanguage]);
 
   const translateText = () => {
     let translatedText = inputText.trim().toLowerCase();
-
-    // Phrase dictionary for multi-word translations
-    const phraseDictionary = {
-      "no chill": "no emtional control",
-      "main character energy": "confidence and stands out",
-      "throwing shade": "subtly disrespecting",
-      "vibe check": 'assess vibe or energy',
-      "big yikes": 'strong discomfort',
-      "hits different": 'emotionally impactful',
-      "glow up": 'improve appearance',
-      "go off:": 'express freely',
-      "on god": 'emphasize truth',
-      "catch these hands": 'ready to fight',
-      "throw hands": 'fight',
-      "stan culture": 'extreme fandom behavior',
-      "spill the tea": 'share the gossip',
-      "cursed image": 'unsettling photo',
-      "vsco girl": 'specific trendy aesthetic',
-      "living rent free": 'constantly on your mind',
-      "rent free": 'occupies mind constantly',
-      "thirst trap": 'provocative photo',
-      "clap back": 'witty retort',
-
-    };
 
     // Check and replace phrases within the sentence
     Object.keys(phraseDictionary).forEach((phrase) => {
@@ -125,6 +126,9 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Top Shadow */}
+      <div className="top-shadow"></div>
+
       {/* Landing Page */}
       <LandingPage />
 
@@ -145,9 +149,7 @@ function App() {
           >
             <option value="en">English</option>
           </select>
-          <button id="swapLanguages">
-            ⇄
-          </button>
+          <button id="swapLanguages">⇄</button>
           <select
             id="targetLanguage"
             value={targetLanguage}
