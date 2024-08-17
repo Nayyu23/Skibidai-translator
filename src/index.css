@@ -48,8 +48,6 @@ button#swapLanguages {
   margin: 0 10px;
   font-size: 20px;
 }
-<<<<<<< Updated upstream
-=======
 
 .prompt-container {
   text-align: center;
@@ -89,4 +87,3 @@ button#swapLanguages {
   opacity: 1;
   transform: translateY(0); /* Ensure that the text slides up to the baseline */
 }
->>>>>>> Stashed changes
