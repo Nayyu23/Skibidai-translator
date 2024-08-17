@@ -5,8 +5,8 @@ import AboutMe from './AboutMe'; // Import the AboutMe component
 function App() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
-  const [sourceLanguage] = useState('al');
-  const [targetLanguage] = useState('en');
+  const [sourceLanguage, setSourceLanguage] = useState('en');
+  const [targetLanguage, setTargetLanguage] = useState('al');
   const [aboutMeVisible, setAboutMeVisible] = useState(false); // State for About Me visibility
   const [lastScrollTop, setLastScrollTop] = useState(0); // State to track the last scroll position
   // Example dictionary
@@ -165,21 +165,9 @@ function App() {
           onChange={(e) => setInputText(e.target.value)}
         />
         <div className="language-select">
-          <select
-            id="sourceLanguage"
-            value={sourceLanguage}
-          >
-            <option value="al">Gen Alpha</option>
-          </select>
-          <button id="swapLanguages">
-            →
+          <button id="sourceLanguage">
+            Gen Alpha → English
           </button>
-          <select
-            id="targetLanguage"
-            value={targetLanguage}
-          >
-            <option value="en">English</option>
-          </select>
         </div>
         <textarea
           id="outputText"
