@@ -43,8 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vh;
-  height: auto;
+  width: 80%;
   max-width: 600px;
   background-color: transparent;
   border-radius: 10px;
@@ -55,10 +54,10 @@ body {
   align-items: center; /* Center align contents */
 }
 
-textarea
-{
+textarea,
+select,
+button {
   width: 100%;
-  height: 20vh;
   margin-bottom: 15px;
   padding: 10px;
   border-radius: 8px;
@@ -86,11 +85,10 @@ button:focus {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
-  width: 80vh; /* Ensure the select elements span the full width */
+  width: 100%; /* Ensure the select elements span the full width */
   align-items: center;
 }
 
-select,
 button {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
@@ -105,7 +103,6 @@ button {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-select,
 button:focus {
   border-color: #f1b970;
   outline: none;
