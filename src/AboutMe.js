@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AboutMe = () => {
+const AboutMe = ({ aboutMeVisible }) => {
   return (
-    <div className="about-me-container">
+    <div className={`about-me-container ${aboutMeVisible ? 'expanded' : ''}`}>
       <h2 className="about-me-header">About Me</h2>
       <div className="about-me-text">
         <p>
