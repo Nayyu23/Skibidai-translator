@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import LandingPage from './LandingPage';
 import ConveyorBelt from './ConveyorBelt';
+import AboutMe from './AboutMe';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -180,7 +181,18 @@ function App() {
         />
       </div>
 
-      <AboutMe aboutMeVisible={aboutMeVisible} />
+      {/* Conveyor Belt */}
+      <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
+
+      {/* About Me Section */}
+      <div className={`about-me-container ${aboutMeVisible ? 'expanded' : ''}`}>
+        <h2 className="about-me-header">About Me</h2>
+        <div className="about-me-text">
+          <p>
+          This application is designed as a comprehensive tool designed to bridge the gap in understanding modern slang, also known as “Gen Alpha” slang. It serves to empower individuals to learn contemporary language trends without the fear of miscommunication or embarrassment. Whether you're trying to stay current or simply decode unfamiliar terminology, this application provides a user-friendly solution that fosters learning and inclusivity in an ever-evolving linguistic landscape.
+          </p>
+        </div>
+      </div>
 
       <div className="footer-container">
         <div className="footer-section">
@@ -199,20 +211,9 @@ function App() {
             <h3>Become a part of us</h3>
             <a href="#">Apply here</a>
           </div>
-      {/* Conveyor Belt */}
-      <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
-
-      {/* About Me Section */}
-      <div className={`about-me-container ${aboutMeVisible ? 'expanded' : ''}`}>
-        <h2 className="about-me-header">About Me</h2>
-        <div className="about-me-text">
-          <p>
-          This application is designed as a comprehensive tool designed to bridge the gap in understanding modern slang, also known as “Gen Alpha” slang. It serves to empower individuals to learn contemporary language trends without the fear of miscommunication or embarrassment. Whether you're trying to stay current or simply decode unfamiliar terminology, this application provides a user-friendly solution that fosters learning and inclusivity in an ever-evolving linguistic landscape.
-          </p>
         </div>
       </div>
     </div>
-
   );
 }
 export default App;
