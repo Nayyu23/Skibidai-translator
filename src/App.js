@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import LandingPage from './LandingPage';
-import AboutMe from './AboutMe';
 import ConveyorBelt from './ConveyorBelt';
 
 function App() {
@@ -10,16 +9,7 @@ function App() {
   const [targetLanguage] = useState('al');
   const [aboutMeVisible, setAboutMeVisible] = useState(false); // State for About Me visibility
   const [lastScrollTop, setLastScrollTop] = useState(0); // State to track the last scroll position
-  const [isPaused, setIsPaused] = useState(false);
-  const [translation, setTranslation] = useState('Hover over a word to translate');
-  const conveyorRef = useRef(null);
 
-  // Hardcoded translations for conveyor words
-  const translations = {
-    'skibidi': 'good',
-    'rizz': 'charisma',
-    'sigma': 'cool'
-  }
 
   const dictionary = {  
     en: {
@@ -172,22 +162,6 @@ function App() {
     return dictionary[sourceLanguage][targetLanguage][word] || word;
   };
 
-  const handleMouseOver = (e) => {
-    setIsPaused(true);
-    const word = e.target.innerText.toLowerCase();
-    const translated = translations[word];
-    if (translated) {
-      setTranslation(translated);
-    } else {
-      setTranslation('Translation not available');
-    }
-  };
-  const handleMouseOut = () => {
-    setIsPaused(false);
-    setTranslation('Hover over a word to translate');
-  };
-
-
   return (
     <div className="app-container">
       {/* Landing Page */}
@@ -228,39 +202,6 @@ function App() {
           </p>
         </div>
       </div>
-
-      <div className="conveyor-container">
-        <div 
-          className={`conveyor ${isPaused ? 'paused' : ''}`}
-          ref={conveyorRef}
-        >
-          <span 
-            className="word" 
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            skibidi
-          </span>
-          <span 
-            className="word" 
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            rizz
-          </span>
-          <span 
-            className="word" 
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            sigma
-          </span>
-        </div>
-        <div className="translation-box" id="translationBox">
-          {translation}
-        </div>
-
-    </div>
     </div>
 
   );
