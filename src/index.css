@@ -216,19 +216,6 @@ button:focus {
   }
 }
 
-.about-me-text {
-  font-size: 1.1em;
-  color: #0000005b;
-  opacity: 0;
-  transform: translateY(30px); /* Start off-screen with a slight offset */
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.about-me-container.expanded .about-me-text {
-  opacity: 1;
-  transform: translateY(0); /* Slide into view */
-}
-
 .conveyor-belt {
   position: relative;
   width: 100%;

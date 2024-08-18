@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function ConveyorBelt({ words, translateWord }) {
   const conveyorRef = useRef(null);
