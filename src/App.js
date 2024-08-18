@@ -129,17 +129,17 @@ function App() {
     const handleScroll = () => {
       const aboutMeSection = document.querySelector('.about-me-container');
       const rect = aboutMeSection.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  
       if (scrollTop > lastScrollTop) {
         setAboutMeVisible(true);
-      } else if (scrollTop < lastScrollTop - 30) {  
+      } else if (scrollTop < lastScrollTop) {  // Increased sensitivity
         setAboutMeVisible(false);
       }
-
+  
       setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); 
     };
-
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
@@ -171,9 +171,10 @@ function App() {
           onChange={(e) => setInputText(e.target.value)}
         />
         <div className="language-select">
-          <button id="sourceLanguage">
-            Gen Alpha → English
-          </button>
+          <select id="sourceLanguage">
+            <option>Gen Alpha → English</option>
+            <option>Coming Soon...</option>
+          </select>
         </div>
         <textarea
           id="outputText"
@@ -208,8 +209,8 @@ function App() {
             <a href="https://docs.google.com/forms/d/1H2UHRw6PGRRtinpM3LXRjEiGqfE_adKeBj8NmpgbjqM/viewform?pli=1&pli=1&edit_requested=true" target="_blank" rel="noopener noreferrer">Fill out our feedback form!</a>
           </div>
           <div className="footer-item">
-            <h3>Become a part of us</h3>
-            <a href="#">Apply here</a>
+            <h3>Back to top</h3>
+            <a href="#">Top</a>
           </div>
         </div>
       </div>
