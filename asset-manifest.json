@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/skibidai-translator/static/css/main.9f567143.css",
+    "main.js": "/skibidai-translator/static/js/main.c85d4602.js",
+    "index.html": "/skibidai-translator/index.html",
+    "main.9f567143.css.map": "/skibidai-translator/static/css/main.9f567143.css.map",
+    "main.c85d4602.js.map": "/skibidai-translator/static/js/main.c85d4602.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f567143.css",
+    "static/js/main.c85d4602.js"
+  ]
+}
