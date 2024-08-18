@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const prompts = ['skibidi?', 'sigma?', 'ohio?', 'rizz?'];
-const colors = ['#007BFF', '#28A745', '#FFC107', '#FF5733']; // Different colors for each prompt
+const colors = ['#007BFF', '#28A745', '#FFC107', '#FF5733'];
 
 const PromptChanger = () => {
   const [index, setIndex] = useState(0);
@@ -9,13 +9,13 @@ const PromptChanger = () => {
 
   useEffect(() => {
     const timer1 = setTimeout(() => {
-      setAnimationClass('fade-slide-out'); // Start the fade-out and slide-down animation
-    }, 2000); // Show each prompt for 2 seconds
+      setAnimationClass('fade-slide-out');
+    }, 2000);
 
     const timer2 = setTimeout(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % prompts.length); // Change to the next prompt
-      setAnimationClass('fade-slide-in'); // Start the fade-in and slide-up animation with color change
-    }, 2500); // Wait 0.5 seconds after fade-out to change prompt
+      setIndex((prevIndex) => (prevIndex + 1) % prompts.length); 
+      setAnimationClass('fade-slide-in'); 
+    }, 2500);
 
     return () => {
       clearTimeout(timer1);

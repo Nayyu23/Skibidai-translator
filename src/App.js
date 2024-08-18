@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import LandingPage from './LandingPage';
 import ConveyorBelt from './ConveyorBelt';
-import AboutMe from './AboutMe';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -10,6 +9,8 @@ function App() {
   const [targetLanguage] = useState('al');
   const [aboutMeVisible, setAboutMeVisible] = useState(false); // State for About Me visibility
   const [lastScrollTop, setLastScrollTop] = useState(0); // Initialize lastScrollTop state
+
+  // Single word dictionary
   const dictionary = {  
     en: {
       al: {
@@ -84,6 +85,8 @@ function App() {
   const translateText = () => {
     let translatedText = inputText.trim().toLowerCase();
 
+    // Multi-word/phrase dictionary
+
     const phraseDictionary = {
       "no chill": "no emotional control",
       "main character energy": "confidence and stands out",
@@ -125,10 +128,10 @@ function App() {
     setOutputText(translatedText.trim());
   };
 
+  // Scroll features
+
   useEffect(() => {
     const handleScroll = () => {
-      const aboutMeSection = document.querySelector('.about-me-container');
-      const rect = aboutMeSection.getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop) {
@@ -144,7 +147,6 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
 
-  /// scrolling thing
 
   // Filter words with single-word translations
   const wordList = Object.keys(dictionary.en.al).filter(word => {
@@ -208,8 +210,8 @@ function App() {
             <a href="https://docs.google.com/forms/d/1H2UHRw6PGRRtinpM3LXRjEiGqfE_adKeBj8NmpgbjqM/viewform?pli=1&pli=1&edit_requested=true" target="_blank" rel="noopener noreferrer">Fill out our feedback form!</a>
           </div>
           <div className="footer-item">
-            <h3>Become a part of us</h3>
-            <a href="#">Apply here</a>
+            <h3>Go back to the top</h3>
+            <a href="#">Top</a>
           </div>
         </div>
       </div>

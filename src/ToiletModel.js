@@ -10,15 +10,14 @@ function ToiletModel({ modelPath }) {
   // Center the model's geometry to ensure it rotates around its own axis
   scene.traverse((child) => {
     if (child.isMesh) {
-      child.castShadow = true; // Enable shadow casting
-      child.receiveShadow = true; // Enable shadow receiving
+      child.castShadow = true;
+      child.receiveShadow = true;
     }
   });
 
   useEffect(() => {
-    // Apply initial rotation after model is loaded
     if (ref.current) {
-      ref.current.rotation.y = Math.PI; // 180 degrees rotation around Y-axis
+      ref.current.rotation.y = Math.PI;
     }
 
     // Function to update the scrollRef.current based on the scroll position
@@ -29,7 +28,6 @@ function ToiletModel({ modelPath }) {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -38,9 +36,9 @@ function ToiletModel({ modelPath }) {
   useFrame(() => {
     if (ref.current) {
       const scrollY = scrollRef.current;
-      ref.current.rotation.y = scrollY * 0.01 + Math.PI; // Adding initial rotation
+      ref.current.rotation.y = scrollY * 0.01 + Math.PI; 
 
-      const scale = Math.max(0.5, 2.5 - scrollY * 0.002); // Prevent the scale from going below 0.5
+      const scale = Math.max(0.5, 2.5 - scrollY * 0.002); // scales from 2.5 to 0.5 (upper/lower limit)
       ref.current.scale.set(scale, scale, scale);
     }
   });
@@ -49,8 +47,8 @@ function ToiletModel({ modelPath }) {
     <primitive
       ref={ref}
       object={scene}
-      scale={[1, 1, 1]} // Initial scale, will be adjusted in useFrame
-      position={[0, -3, 0]} // Center the model at the origin
+      scale={[1, 1, 1]}
+      position={[0, -3, 0]}
     />
   );
 }

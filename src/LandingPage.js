@@ -2,7 +2,6 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import ToiletModel from './ToiletModel';
 import PromptChanger from './PromptChanger';
-import ConveyorBelt from './ConveyorBelt';
 
 const LandingPage = () => {
   return (
@@ -27,7 +26,6 @@ const LandingPage = () => {
       
 
       <div className="translator-container">
-        {/* Insert your translator component here */}
       </div>
 
       
