@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import LandingPage from './LandingPage';
-import AboutMe from './AboutMe';
-import ConveyorBelt from './ConveyorBelt';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -86,7 +84,7 @@ function App() {
 
     // Phrase dictionary for multi-word translations
     const phraseDictionary = {
-      "no chill": "no emotional control",
+      "no chill": "no emtional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
       "throw shade": 'subtly disrespect',
@@ -94,7 +92,7 @@ function App() {
       "big yikes": 'strong discomfort',
       "hits different": 'emotionally impactful',
       "glow up": 'improve appearance',
-      "go off": 'express freely',
+      "go off:": 'express freely',
       "on god": 'emphasize truth',
       "catch these hands": 'ready to fight',
       "throw hands": 'fight',
@@ -108,6 +106,7 @@ function App() {
       "clap back": 'witty retort',
       "on skibidi": "truthfully",
       "on skib": "truthfully",
+
     };
 
     // Check and replace phrases within the sentence
@@ -119,15 +118,11 @@ function App() {
     // Split the text into words after phrase replacement
     const words = translatedText.split(' ');
 
-
-    // Hardcoded word translations for single-word translations
-    const wordTranslations = translations;
-
     // Word dictionary for single-word translations
     const wordDictionary = dictionary[sourceLanguage][targetLanguage];
 
     translatedText = words.map((word) => {
-      return wordTranslations[word] || word; // Translate each word or leave it unchanged
+      return wordDictionary[word] || word; // Translate each word or leave it unchanged
     }).join(' ');
 
     setOutputText(translatedText.trim());
@@ -154,94 +149,7 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
 
-  const handleMouseOver = (e) => {
-    setIsPaused(true);
-    const word = e.target.innerText.toLowerCase();
-    const translated = translations[word];
-    if (translated) {
-      setTranslation(translated);
-    } else {
-      setTranslation('Translation not available');
-    }
-  };
-
-  const handleMouseOut = () => {
-    setIsPaused(false);
-    setTranslation('Hover over a word to translate');
-  };
-
-  // Filter words with single-word translations
-  const wordList = Object.keys(dictionary.en.al).filter(word => {
-    const translation = dictionary.en.al[word];
-    return translation.split(' ').length === 1; // Include only single-word translations
-  });
-
-  const translateSingleWord = (word) => {
-    return dictionary[sourceLanguage][targetLanguage][word] || word;
-  };
-
   return (
-      <div className="app-container">
-        {/* Skibidi Changer above the toilet */}
-        <PromptChanger />
-
-        {/* 3D Model with Lighting */}
-        <div className="model-container">
-          <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
-            <ambientLight intensity={0.7} />
-            <directionalLight
-              position={[2, 5, 2]}
-              intensity={1}
-              castShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024} />
-            <ToiletModel modelPath="/toilet.glb" />
-          </Canvas>
-        </div>
-
-      {/* Conveyor Belt */}
-      <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
-
-      {/* About Me Section */}
-      <div className={`about-me-container ${aboutMeVisible ? 'expanded' : ''}`}>
-        <h2 className="about-me-header">About Me</h2>
-        <div className="about-me-text">
-          <p>
-          This application is designed as a comprehensive tool designed to bridge the gap in understanding modern slang, also known as “Gen Alpha” slang. It serves to empower individuals to learn contemporary language trends without the fear of miscommunication or embarrassment. Whether you're trying to stay current or simply decode unfamiliar terminology, this application provides a user-friendly solution that fosters learning and inclusivity in an ever-evolving linguistic landscape.
-          </p>
-        </div>
-      </div>
-
-      <div className="conveyor-container">
-        <div 
-          className={`conveyor ${isPaused ? 'paused' : ''}`}
-          ref={conveyorRef}
-        >
-          <span 
-            className="word" 
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            skibidi
-          </span>
-          <span 
-            className="word" 
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            rizz
-          </span>
-          <span 
-            className="word" 
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            sigma
-          </span>
-        </div>
-        <div className="translation-box" id="translationBox">
-          {translation}
-
     <div className="app-container">
       {/* Landing Page */}
       <LandingPage />
@@ -260,6 +168,13 @@ function App() {
             Gen Alpha → English
           </button>
         </div>
+        <textarea
+          id="outputText"
+          placeholder="Translation"
+          rows="4"
+          value={outputText}
+          readOnly
+        />
       </div>
 
       {/* About Me Section */}
