@@ -8,9 +8,7 @@ function App() {
   const [sourceLanguage] = useState('en');
   const [targetLanguage] = useState('al');
   const [aboutMeVisible, setAboutMeVisible] = useState(false); // State for About Me visibility
-  const [lastScrollTop, setLastScrollTop] = useState(0); // State to track the last scroll position
-
-
+  const [lastScrollTop, setLastScrollTop] = useState(0); // Initialize lastScrollTop state
   const dictionary = {  
     en: {
       al: {
@@ -77,6 +75,7 @@ function App() {
       }
     }
   };
+
   useEffect(() => {
     translateText();
   }, [inputText]);
@@ -84,9 +83,8 @@ function App() {
   const translateText = () => {
     let translatedText = inputText.trim().toLowerCase();
 
-    // Phrase dictionary for multi-word translations
     const phraseDictionary = {
-      "no chill": "no emtional control",
+      "no chill": "no emotional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
       "throw shade": 'subtly disrespect',
@@ -94,7 +92,7 @@ function App() {
       "big yikes": 'strong discomfort',
       "hits different": 'emotionally impactful',
       "glow up": 'improve appearance',
-      "go off:": 'express freely',
+      "go off": 'express freely',
       "on god": 'emphasize truth',
       "catch these hands": 'ready to fight',
       "throw hands": 'fight',
@@ -108,43 +106,37 @@ function App() {
       "clap back": 'witty retort',
       "on skibidi": "truthfully",
       "on skib": "truthfully",
-
     };
 
-    // Check and replace phrases within the sentence
     Object.keys(phraseDictionary).forEach((phrase) => {
       const regex = new RegExp(`\\b${phrase}\\b`, 'gi');
       translatedText = translatedText.replace(regex, phraseDictionary[phrase]);
     });
 
-    // Split the text into words after phrase replacement
     const words = translatedText.split(' ');
 
-    // Word dictionary for single-word translations
     const wordDictionary = dictionary[sourceLanguage][targetLanguage];
 
     translatedText = words.map((word) => {
-      return wordDictionary[word] || word; // Translate each word or leave it unchanged
+      return wordDictionary[word] || word;
     }).join(' ');
 
     setOutputText(translatedText.trim());
   };
 
-  // Scroll-based visibility for About Me
   useEffect(() => {
     const handleScroll = () => {
       const aboutMeSection = document.querySelector('.about-me-container');
       const rect = aboutMeSection.getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Increase sensitivity to scrolling up
-      if (rect.top <= window.innerHeight && rect.bottom >= 0 && scrollTop > lastScrollTop) {
+      if (scrollTop > lastScrollTop) {
         setAboutMeVisible(true);
-      } else if (scrollTop < lastScrollTop - 5) {  // Smaller threshold for minimizing
+      } else if (scrollTop < lastScrollTop - 30) {  
         setAboutMeVisible(false);
       }
 
-      setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // For Mobile or negative scrolling
+      setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); 
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -164,10 +156,8 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Landing Page */}
       <LandingPage />
 
-      {/* Translator Section */}
       <div className="translator-container">
         <textarea
           id="inputText"
@@ -190,6 +180,25 @@ function App() {
         />
       </div>
 
+      <AboutMe aboutMeVisible={aboutMeVisible} />
+
+      <div className="footer-container">
+        <div className="footer-section">
+          <div className="footer-item">
+            <h3>Work with us</h3>
+            <p><a href="https://www.linkedin.com/in/kiet-tran12" target="_blank" rel="noopener noreferrer">Kiet Tran</a></p>
+            <p><a href="https://www.linkedin.com/in/janreve" target="_blank" rel="noopener noreferrer">Janreve Salubre</a></p>
+            <p><a href="https://www.linkedin.com/in/nayan-krishna" target="_blank" rel="noopener noreferrer">Nayan Krishna</a></p>
+            <p><a href="https://www.linkedin.com/in/tenzinchoesang" target="_blank" rel="noopener noreferrer">Tenzin Choesang</a></p>
+          </div>
+          <div className="footer-item">
+            <h3>Feedback</h3>
+            <a href="https://docs.google.com/forms/d/1H2UHRw6PGRRtinpM3LXRjEiGqfE_adKeBj8NmpgbjqM/viewform?pli=1&pli=1&edit_requested=true" target="_blank" rel="noopener noreferrer">Fill out our feedback form!</a>
+          </div>
+          <div className="footer-item">
+            <h3>Become a part of us</h3>
+            <a href="#">Apply here</a>
+          </div>
       {/* Conveyor Belt */}
       <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
 
@@ -207,3 +216,4 @@ function App() {
   );
 }
 export default App;
+
