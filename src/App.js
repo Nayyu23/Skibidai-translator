@@ -159,6 +159,9 @@ function App() {
     <div className="app-container">
       <LandingPage />
 
+      {/* Conveyor Belt */}
+      <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
+      
       <div className="translator-container">
         <textarea
           id="inputText"
@@ -180,9 +183,6 @@ function App() {
           readOnly
         />
       </div>
-
-      {/* Conveyor Belt */}
-      <ConveyorBelt words={wordList} translateWord={translateSingleWord} />
 
       {/* About Me Section */}
       <div className={`about-me-container ${aboutMeVisible ? 'expanded' : ''}`}>

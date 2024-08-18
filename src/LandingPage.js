@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import ToiletModel from './ToiletModel';
 import PromptChanger from './PromptChanger';
-import AboutMe from './AboutMe'; // Import the AboutMe component
+import ConveyorBelt from './ConveyorBelt';
 
 const LandingPage = () => {
   return (
@@ -24,6 +24,7 @@ const LandingPage = () => {
           <ToiletModel modelPath="/toilet.glb" />
         </Canvas>
       </div>
+      
 
       <div className="translator-container">
         {/* Insert your translator component here */}
