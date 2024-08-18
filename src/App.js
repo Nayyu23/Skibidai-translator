@@ -74,6 +74,17 @@ function App() {
         squad: 'close friends',
         clapped: 'ugly',
         rizz: 'charisma',
+        gyat: 'large glutes',
+        caseoh: 'impossibly heavy man',
+        rizzler: 'person with lots of charisma',
+        rizzed: 'charmed',
+        aura: '-10,000 aura',
+        cook: 'do it',
+        glaze: 'over-praise',
+        ick: 'unattractive trait',
+        npc: 'dull person',
+
+
       }
     }
   };
@@ -88,6 +99,9 @@ function App() {
     // Multi-word/phrase dictionary
 
     const phraseDictionary = {
+      "sussy baka": "suspicious idiot",
+      "livvy dunne": "attractive woman",
+      "kai cenat": 'popular influence',
       "no chill": "no emotional control",
       "main character energy": "confidence and stands out",
       "throwing shade": "subtly disrespecting",
